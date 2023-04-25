@@ -4,8 +4,8 @@ Projeto para visualização de pokémons com ReactJS.
 
 ## Funcionalidades
 
-[ ] Listagem de pokémon
-[ ] Informações sobre seus status
-[ ] Barra de pesquisa
-[ ] Criar seções por tipo
-[ ] Criar árvore evolutiva
+[ ] Listagem de pokémon <br />
+[ ] Informações sobre seus status <br />
+[ ] Barra de pesquisa <br />
+[ ] Criar seções por tipo <br />
+[ ] Criar árvore evolutiva <br />
