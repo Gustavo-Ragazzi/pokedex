@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import InputSearch from '../InputSearch';
 import InputCheckboxType from '../InputCheckboxType';
+import Logo from '../Logo';
 
 const types = ["Bug", "Dragon", "Fairy", "Fire", "Ghost", "Ground", "Normal", "Psychic", "Steel", "Dark", "Electric", "Fighting", "Flying", "Grass", "Ice", "Poison", "Rock", "Water"]
 
@@ -12,7 +13,7 @@ const HeaderContainer = styled.header `
 
 const SearchForm = styled.form `
     display: flex;
-    gap: 20vh;
+    gap: 3vh;
     flex-direction: column;
     padding: 1em;
 `
@@ -20,6 +21,7 @@ const SearchForm = styled.form `
 export default function Header() {
     return (
         <HeaderContainer>
+            <Logo></Logo>
             <SearchForm>
                 <InputSearch></InputSearch>
                 <InputCheckboxType types={types}></InputCheckboxType>

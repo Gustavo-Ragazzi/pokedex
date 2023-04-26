@@ -6,9 +6,8 @@ export default function PokemonList() {
         display: flex;
         flex-wrap: wrap;
         gap: 2em;
-        margin: auto 2em;
         justify-content: center;
-        padding-left: 15em;
+        padding-left: 16.5em;
     `
     return (
         <PokeList>
