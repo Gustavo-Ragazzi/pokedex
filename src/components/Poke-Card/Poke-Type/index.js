@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 
-let pokemon = require("../../../pokemon-list.json");
-let pokeId = 5;
-
 const Container = styled.div`
     display: flex;
     margin-top: 0.5em;
@@ -16,7 +13,7 @@ const Container = styled.div`
 const TypeContainer = styled.div`
     height: auto;
     width: 4.5em;
-    margin: auto;
+    margin: 0.3em auto;
     text-align: center;
     font-weight: bold;
     color: white;
@@ -24,11 +21,11 @@ const TypeContainer = styled.div`
     background-color: ${props => typeColor(props.type)};
 `
 
-export default function PokeType(pokeType) {
+export default function PokeType(props) {
     return (
         <Container>
             {
-                pokemon[pokeId].type.map((type) => (
+                props.pokemonType.map((type) => (
                     <TypeContainer type={type}>
                         <p>{type}</p>
                     </TypeContainer>
@@ -42,7 +39,7 @@ function typeColor(type) {
     switch (type) {
         case "Normal":
             return "#A8A878";
-        case "Fight":
+        case "Fighting":
             return "#C03028";
         case "Flying":
             return "#A890F0";

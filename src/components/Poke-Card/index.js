@@ -5,7 +5,7 @@ let pokemonList = require("../../pokemon-list.json");
 
 const Card = styled.div `
     flex-direction: column;
-    height: 360px;
+    height: 350px;
     display: flex;
     background-color: lightgray;
     border-radius: 35px;
@@ -48,7 +48,7 @@ export default function CardPokemon() {
                                 <h2>{pokemon.name.english}</h2>
                                 <p className='NameId'>#{pokemon.id}</p>
                             </NameContainer>
-                            <PokeType></PokeType> 
+                            <PokeType pokemonType={pokemon.type}></PokeType> 
                         </Card>
                     ))
                 }
@@ -60,7 +60,7 @@ function threeInt(id) {
     if(id <= 9 && id >= 0) {
         return `00${id}`
     }
-    if(id <= 100) {
+    if(id < 100) {
         return `0${id}`
     }
     else {

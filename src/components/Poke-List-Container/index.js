@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import CardPokemon from '../Poke-Card';
+import CardPokemon from "../Poke-Card"
 
 export default function PokemonList() {
     const PokeList = styled.div `
@@ -7,6 +7,7 @@ export default function PokemonList() {
         flex-wrap: wrap;
         gap: 2em;
         margin: auto 2em;
+        justify-content: center;
     `
     return (
         <PokeList>
