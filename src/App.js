@@ -1,22 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
+
+import PokemonList from "./components/Poke-List-Container";
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Em contrução ...
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-        </a>
-      </header>
+        <PokemonList></PokemonList>
     </div>
   );
 }
