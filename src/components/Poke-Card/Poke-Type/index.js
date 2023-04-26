@@ -24,7 +24,7 @@ const TypeContainer = styled.div`
     background-color: ${props => typeColor(props.type)};
 `
 
-export default function PokeType() {
+export default function PokeType(pokeType) {
     return (
         <Container>
             {

@@ -2,9 +2,6 @@ import styled from 'styled-components';
 import PokeType from './Poke-Type';
 
 let pokemonList = require("../../pokemon-list.json");
-let pokeId = 5;
-
-//pokemonList.map((pokemon, index) => console.log(pokemon.name.english))
 
 const Card = styled.div `
     flex-direction: column;
@@ -42,7 +39,7 @@ export default function CardPokemon() {
                     pokemonList.map((pokemon) => (
                         <Card>
                             <img 
-                                src='/pokemon-images/006.png'
+                                src={"/pokemon-images/" + threeInt(pokemon.id) + ".png"}
                                 alt='Falha no carregamento'
                                 width={250}
                                 height={250}
@@ -59,3 +56,14 @@ export default function CardPokemon() {
         )
 }
 
+function threeInt(id) {
+    if(id <= 9 && id >= 0) {
+        return `00${id}`
+    }
+    if(id <= 100) {
+        return `0${id}`
+    }
+    else {
+        return id
+    }
+}
