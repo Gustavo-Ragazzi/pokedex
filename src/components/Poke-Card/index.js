@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import PokeType from './Poke-Type';
+import { useContext } from 'react';
+import { MyPokemonList } from '../MainContainer';
 
 const pokemonList = require("../../pokemon-list.json");
 
@@ -31,9 +33,20 @@ const NameContainer = styled.div `
     justify-content: space-between;
 `
 
-export default function CardPokemon(props) {
+const PokeList = styled.div `
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+    padding-left: 16.5em;
+    margin: 2em 0;
+`
+
+export default function CardPokemon() {
+    const { pokemonFiltedList, setPokemonFiltedList } = useContext(MyPokemonList)
+
     return (
-            <>
+            <PokeList>
                 {
                     pokemonList.map((pokemon) => (
                         <Card>
@@ -51,7 +64,7 @@ export default function CardPokemon(props) {
                         </Card>
                     ))
                 }
-            </>
+            </PokeList>
         )
 }
 
