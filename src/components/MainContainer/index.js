@@ -8,12 +8,12 @@ export const MyPokemonList = createContext()
 const pokemonFullList = require("../../pokemon-list.json")
 
 export default function MainContainer() {
-    const [pokemonFiltedList, setPokemonFiltedList] = useState([pokemonFullList])
+    const [pokemonFiltedList, setPokemonFiltedList] = useState({pokemonFullList})
 
     return (
         <MyPokemonList.Provider value={{ pokemonFiltedList, setPokemonFiltedList }}>
             <Header></Header>
-                <CardPokemon></CardPokemon>
+            <CardPokemon></CardPokemon>
         </MyPokemonList.Provider>
     )
 }

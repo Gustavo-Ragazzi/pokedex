@@ -26,7 +26,7 @@ export default function PokeType(props) {
         <Container>
             {
                 props.pokemonType.map((type) => (
-                    <TypeContainer type={type}>
+                    <TypeContainer type={type} key={"TypeContainer" + type}>
                         <p>{type}</p>
                     </TypeContainer>
                 ))

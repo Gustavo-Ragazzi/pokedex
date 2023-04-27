@@ -55,7 +55,7 @@ export default function InputButtonType(props) {
         <Container>
             {
                 props.types.map((type) => (
-                    <DivContainer>
+                    <DivContainer key={"Div"+type}>
                         <TypeButton
                             id={"Filter" + type}
                             key={"Filter" + type}
