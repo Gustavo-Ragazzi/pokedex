@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import InputSearch from '../InputSearch';
-import InputCheckboxType from '../InputCheckboxType';
+import InputButtonType from '../InputButtonType';
 import Logo from '../Logo';
 
 const types = ["Bug", "Dragon", "Fairy", "Fire", "Ghost", "Ground", "Normal", "Psychic", "Steel", "Dark", "Electric", "Fighting", "Flying", "Grass", "Ice", "Poison", "Rock", "Water"]
@@ -24,7 +24,7 @@ export default function Header() {
             <Logo></Logo>
             <SearchForm>
                 <InputSearch></InputSearch>
-                <InputCheckboxType types={types}></InputCheckboxType>
+                <InputButtonType types={types}></InputButtonType>
             </SearchForm>
         </HeaderContainer>
     )

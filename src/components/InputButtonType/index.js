@@ -2,50 +2,70 @@ import styled from 'styled-components';
 
 const Container = styled.div `
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0.5em;
+    justify-items: center;
+    justify-self: center;
+
+    img {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        padding: 0.5em;
+        border-radius: 90px;
+    }
+
+    @media (max-height: 650px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
 `
 
-const TypeButton = styled.input`
-    display: none;
-`
-
-const LabelContainer = styled.label `
-    display: flex;
-    padding: 0.5em;
-    margin: 0.5em;
+const DivContainer = styled.div `
     width: 64px;
     height: 64px;
-    border-radius: 90px;
 
-    @media (max-height: 950px) {
-        margin: 0.15em 0.5em;
-    } 
+    @media (max-height: 750px) {
+        width: 48px;
+        height: 48px;
+    }
+
+    @media (max-height: 650px) {
+
+    }
 `
 
+const TypeButton = styled.button`
+    cursor: pointer;
+    border: 0;
+    background-color: transparent;
 
+    :hover {
+        transform: scale(1.1);
+        transition-duration: 150ms;
+    }
 
-export default function InputCheckboxType(props) {
+    :active {
+        filter: brightness(120%);
+    }
+`
+
+export default function InputButtonType(props) {
 
     return (
         <Container>
             {
                 props.types.map((type) => (
-                    <LabelContainer 
-                        id={type}
-                        name={type}
-                        style={{background: typeColor(type)}}
-                    >
-                        <img 
+                    <DivContainer>
+                        <TypeButton
+                            id={type}
+                        >
+                        <img
                             src={"../icons/" + type + ".svg"}
                             alt={type + " Icon"}
-                        />
-
-                        <TypeButton
-                            type='checkbox' 
-                            id={type}
-                        />
-                    </LabelContainer>
+                            style={{backgroundColor: typeColor(type)}}
+                        ></img>
+                        </TypeButton>
+                    </DivContainer>
                     ))
             }
         </Container>
