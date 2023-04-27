@@ -57,9 +57,16 @@ export default function InputButtonType(props) {
                 props.types.map((type) => (
                     <DivContainer>
                         <TypeButton
-                            id={type}
+                            id={"Filter" + type}
+                            key={"Filter" + type}
+                            onClick={e => {
+                                e.preventDefault()
+                                changeImgColor(type);
+                            }}
                         >
                         <img
+                            id={"Img" + type}
+                            key={"Img" + type}
                             src={"../icons/" + type + ".svg"}
                             alt={type + " Icon"}
                             style={{backgroundColor: typeColor(type)}}
@@ -112,5 +119,16 @@ function typeColor(type) {
             return "#EE99AC";
         default:
             return "white";
+    }
+}
+
+function changeImgColor(type) {
+    const img = document.querySelector("#Img" + type)
+    const imgBackgroundColor = img.style.backgroundColor
+
+    if(imgBackgroundColor === "gray") {
+        img.style.backgroundColor = typeColor(type)
+    } else {
+        img.style.backgroundColor = "gray"
     }
 }
