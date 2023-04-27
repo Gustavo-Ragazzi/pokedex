@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const Container = styled.div `
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    align-content: center;
 `
 
 const TypeButton = styled.input`
@@ -11,9 +12,15 @@ const TypeButton = styled.input`
 
 const LabelContainer = styled.label `
     display: flex;
-    padding: 0.5em 0.5em;
-    border-radius: 90px;
+    padding: 0.5em;
     margin: 0.5em;
+    width: 64px;
+    height: 64px;
+    border-radius: 90px;
+
+    @media (max-height: 950px) {
+        margin: 0.15em 0.5em;
+    } 
 `
 
 
@@ -32,13 +39,11 @@ export default function InputCheckboxType(props) {
                         <img 
                             src={"../icons/" + type + ".svg"}
                             alt={type + " Icon"}
-                            width={64}
                         />
 
                         <TypeButton
                             type='checkbox' 
                             id={type}
-                            
                         />
                     </LabelContainer>
                     ))

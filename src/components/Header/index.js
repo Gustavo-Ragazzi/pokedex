@@ -25,7 +25,6 @@ export default function Header() {
             <SearchForm>
                 <InputSearch></InputSearch>
                 <InputCheckboxType types={types}></InputCheckboxType>
-                <input type="submit" style={{display: "none"}}></input>
             </SearchForm>
         </HeaderContainer>
     )

@@ -8,6 +8,7 @@ export default function PokemonList() {
         gap: 2em;
         justify-content: center;
         padding-left: 16.5em;
+        margin: 2em 0;
     `
     return (
         <PokeList>
