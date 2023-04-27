@@ -31,7 +31,7 @@ const NameContainer = styled.div `
     justify-content: space-between;
 `
 
-export default function CardPokemon() {
+export default function CardPokemon(props) {
     return (
             <>
                 {

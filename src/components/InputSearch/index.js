@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 
-const types = ["Bug", "Dragon", "Fairy", "Fire", "Ghost", "Ground", "Normal", "Psychic", "Steel", "Dark", "Electric", "Fighting", "Flying", "Grass", "Ice", "Poison", "Rock", "Water"]
 const pokemonList = require("../../pokemon-list.json");
 
 const Search = styled.input `
@@ -17,7 +16,7 @@ const SearchContainer = styled.div`
 `
 
 export default function InputSearch() {
-    const [pokeSearch, setPokeSearch] = useState([])
+    const [pokeSearch, setPokeSearch] = useState([pokemonList])
     
     return (
         <SearchContainer>
