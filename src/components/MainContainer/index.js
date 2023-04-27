@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import Header from '../Header';
 import CardPokemon from '../Poke-Card';
+import { createContext, useState } from 'react';
+
+export const MyPokemonList = createContext()
 
 const pokemonFullList = require("../../pokemon-list.json")
 
@@ -16,12 +19,17 @@ const PokeList = styled.div `
 `
 
 export default function MainContainer() {
+    const [pokemonFiltedList, setPokemonFiltedList] = useState([pokemonFullList])
+    console.log(pokemonFiltedList)
+
     return (
-        <Container>
-            <Header></Header>
-            <PokeList>
-                <CardPokemon></CardPokemon>
-            </PokeList>
-        </Container>
+        <MyPokemonList.Provider value={{ pokemonFiltedList, setPokemonFiltedList }}>
+            <Container>
+                <Header></Header>
+                <PokeList>
+                    <CardPokemon></CardPokemon>
+                </PokeList>
+            </Container>
+        </MyPokemonList.Provider>
     )
 }
