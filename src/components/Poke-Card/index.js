@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import PokeType from './Poke-Type';
 
-let pokemonList = require("../../pokemon-list.json");
+const pokemonList = require("../../pokemon-list.json");
 
 const Card = styled.div `
     flex-direction: column;
@@ -30,7 +30,6 @@ const NameContainer = styled.div `
     display: flex;
     justify-content: space-between;
 `
-
 
 export default function CardPokemon() {
     return (
