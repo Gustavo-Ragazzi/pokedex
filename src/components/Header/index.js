@@ -30,11 +30,7 @@ const SearchForm = styled.form `
     padding: 1em;
 `
 
-const SearchBarContainer = styled.aside `
-    @media (max-width: 650px) {
-        display: none;
-    }
-`
+const SearchBarContainer = styled.aside ``
 
 export default function Header() {
     return (

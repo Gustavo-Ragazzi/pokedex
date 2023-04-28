@@ -23,7 +23,7 @@ const FilterButton = styled.button`
         filter: brightness(120%);
     }
 
-    @media (max-width: 650px) {
+    @media (max-width: 680px) {
         display: block;
     }
 `

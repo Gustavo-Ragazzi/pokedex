@@ -9,6 +9,7 @@ const Card = styled.div `
     display: flex;
     background-color: lightgray;
     border-radius: 35px;
+    margin: 1em;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
     * {
@@ -34,12 +35,10 @@ const NameContainer = styled.div `
 const PokeList = styled.div `
     display: flex;
     flex-wrap: wrap;
-    gap: 2em;
     justify-content: center;
-    margin: 2em 0;
     padding-left: 327px;
 
-    @media (max-width: 650px) {
+    @media (max-width: 680px) {
         padding-left: 0;
     }
 `
