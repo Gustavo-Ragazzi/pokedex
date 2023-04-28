@@ -69,7 +69,7 @@ export default function InputButtonType(props) {
                             id={"Img" + type}
                             key={"Img" + type}
                             data-type={"ImgTypeBackground"}
-                            src={"../icons/" + type + ".svg"}
+                            src={"../icons/" + type.toLowerCase() + ".svg"}
                             alt={type + " Icon"}
                             style={{backgroundColor: typeColor(type)}}
                         ></img>
