@@ -3,8 +3,6 @@ import { useContext, useState } from 'react';
 import { MyPokemonList } from '../MainContainer';
 import { filterUpdate } from '../InputButtonType';
 
-const pokemonList = require("../../pokemon-list.json");
-
 const Search = styled.input `
     width: 100%;
     background-color: #424549;
@@ -13,9 +11,7 @@ const Search = styled.input `
     padding-left: 0.5em;
 `
 
-const SearchContainer = styled.div`
-
-`
+const SearchContainer = styled.div``
 
 export default function InputSearch() {
     const { pokemonFiltedList, setPokemonFiltedList } = useContext(MyPokemonList);
