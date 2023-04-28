@@ -26,10 +26,9 @@ export default function InputSearch() {
                 type="search"
                 placeholder= "Pesquisa"
                 value={inputText}
-                onBlur={event => {
+                onBlur={() => {
                     setInputText("")
-                    const filteredList = inputText === "" ? pokemonList : pokemonFiltedList.filter(pokemon => pokemon.name.english.toLowerCase().includes(inputText.toLowerCase()))
-                    setPokemonFiltedList(filteredList)
+                    setPokemonFiltedList(inputSearch(inputText, pokemonFiltedList))
                 }}
                 onChange={event => {
                     setInputText(event.target.value)
@@ -37,4 +36,14 @@ export default function InputSearch() {
             />
         </SearchContainer>
     )
+}
+
+function inputSearch(inputText, pokemonFiltedList) {
+    const filteredList = inputText;
+
+    if(filteredList === "") {
+        return pokemonList
+    } else {
+        return pokemonFiltedList.filter((pokemon) => pokemon.name.english.toLowerCase().includes(inputText.toLowerCase()))
+    }
 }
