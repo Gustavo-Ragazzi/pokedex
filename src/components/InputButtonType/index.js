@@ -139,12 +139,9 @@ function changeColor(type) {
     }
 }
 
-function filterUpdate(type) {
-    
+export function filterUpdate() {
     const filterList = boxCheckedList()
-
     const res = pokemonFullList.filter(pokemon => filterList.some(type => pokemon.type.includes(type)))
-
     return res
 }
 

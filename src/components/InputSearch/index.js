@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { useContext, useState } from 'react';
 import { MyPokemonList } from '../MainContainer';
+import { filterUpdate } from '../InputButtonType';
 
 const pokemonList = require("../../pokemon-list.json");
 
@@ -38,12 +39,12 @@ export default function InputSearch() {
     )
 }
 
-function inputSearch(inputText, pokemonFiltedList) {
-    const filteredList = inputText;
+function inputSearch(inputText) {
+    const filteredList = filterUpdate()
 
-    if(filteredList === "") {
-        return pokemonList
+    if(inputText === "") {
+        return filteredList
     } else {
-        return pokemonFiltedList.filter((pokemon) => pokemon.name.english.toLowerCase().includes(inputText.toLowerCase()))
+        return filteredList.filter((pokemon) => pokemon.name.english.toLowerCase().includes(inputText.toLowerCase()))
     }
 }
