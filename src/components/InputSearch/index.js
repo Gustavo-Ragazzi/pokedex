@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { MyPokemonList } from '../MainContainer';
 
 const pokemonList = require("../../pokemon-list.json");
 
@@ -16,17 +17,22 @@ const SearchContainer = styled.div`
 `
 
 export default function InputSearch() {
-    const [pokeSearch, setPokeSearch] = useState([pokemonList])
+    const { pokemonFiltedList, setPokemonFiltedList } = useContext(MyPokemonList);
+    const [ inputText, setInputText ] = useState("")
     
     return (
         <SearchContainer>
             <Search 
                 type="search"
                 placeholder= "Pesquisa"
+                value={inputText}
                 onBlur={event => {
-                    const inputText = event.target.value.toLowerCase()
-                    const res = pokemonList.filter(pokemon => pokemon.name.english.toLowerCase().includes(inputText))
-                    setPokeSearch(res)
+                    setInputText("")
+                    const filteredList = inputText === "" ? pokemonList : pokemonFiltedList.filter(pokemon => pokemon.name.english.toLowerCase().includes(inputText.toLowerCase()))
+                    setPokemonFiltedList(filteredList)
+                }}
+                onChange={event => {
+                    setInputText(event.target.value)
                 }}
             />
         </SearchContainer>
