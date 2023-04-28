@@ -65,6 +65,7 @@ export default function InputButtonType(props) {
                             key={"Filter" + type}
                             onClick={e => {
                                 e.preventDefault()
+                                changeColor(type)
                                 setPokemonFiltedList(filterUpdate(type))
                             }}
                         >
@@ -127,20 +128,22 @@ function typeColor(type) {
     }
 }
 
-function filterUpdate(type) {
+function changeColor(type) {
     const img = document.querySelector("#Img" + type)
     const imgBackgroundColor = img.style.backgroundColor
-
+    
     if(imgBackgroundColor === "gray") {
         img.style.backgroundColor = typeColor(type)
     } else {
         img.style.backgroundColor = "gray"
     }
+}
+
+function filterUpdate(type) {
     
     const filterList = boxCheckedList()
 
     const res = pokemonFullList.filter(pokemon => filterList.some(type => pokemon.type.includes(type)))
-    console.log(res)
 
     return res
 }
