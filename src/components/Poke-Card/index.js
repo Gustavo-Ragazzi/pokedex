@@ -45,12 +45,11 @@ const PokeList = styled.div `
 export default function CardPokemon() {
     const { pokemonFiltedList, setPokemonFiltedList } = useContext(MyPokemonList)
 
-    console.log(pokemonFiltedList[0])
-
     return (
             <PokeList key={"PokeList"}>
                 {
-                    pokemonList.map((pokemon, index) => (
+                    pokemonFiltedList.map((pokemon, index) => (
+                        
                         <Card id={"CardDiv" + pokemon} key={"Card" + pokemon + index}>
                             <img 
                                 src={"/pokemon-images/" + threeInt(pokemon.id) + ".png"}
@@ -63,7 +62,7 @@ export default function CardPokemon() {
                                 <h2>{pokemon.name.english}</h2>
                                 <p className='NameId'>#{pokemon.id}</p>
                             </NameContainer>
-                            <PokeType pokemonType={pokemon.type} key={"PokeType" + pokemon}></PokeType> 
+                            <PokeType pokemonType={pokemon.type} key={"PokeType" + pokemon.id}></PokeType> 
                         </Card>
                     ))
                 }
