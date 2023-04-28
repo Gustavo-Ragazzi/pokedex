@@ -3,8 +3,6 @@ import PokeType from './Poke-Type';
 import { useContext } from 'react';
 import { MyPokemonList } from '../MainContainer';
 
-const pokemonList = require("../../pokemon-list.json");
-
 const Card = styled.div `
     flex-direction: column;
     height: 350px;
@@ -38,8 +36,12 @@ const PokeList = styled.div `
     flex-wrap: wrap;
     gap: 2em;
     justify-content: center;
-    padding-left: 16.5em;
     margin: 2em 0;
+    padding-left: 327px;
+
+    @media (max-width: 650px) {
+        padding-left: 0;
+    }
 `
 
 export default function CardPokemon() {

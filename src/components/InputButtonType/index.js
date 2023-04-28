@@ -17,7 +17,7 @@ const Container = styled.div `
         border-radius: 90px;
     }
 
-    @media (max-height: 650px) {
+    @media (max-height: 680px) {
         grid-template-columns: repeat(4, 1fr);
     }
 `
@@ -26,13 +26,9 @@ const DivContainer = styled.div `
     width: 64px;
     height: 64px;
 
-    @media (max-height: 750px) {
+    @media (max-height: 780px) {
         width: 48px;
         height: 48px;
-    }
-
-    @media (max-height: 650px) {
-
     }
 `
 

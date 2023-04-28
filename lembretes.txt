@@ -1,9 +1,0 @@
-Para fazer:
-
-Mediaquery a partir de 950w
-Mediaquery a partir de 950h
-Colocar em cinza os elementos fora do filtro
-Criar o algoritmo de filtro
-
-
-Palheta de cores: https://www.color-hex.com/color-palette/28549
