@@ -16,8 +16,7 @@ const Card = styled.div `
         color: black;
     }
 
-    h2, .NameId {
-        margin: 0 1em;
+    h2, .NameClass {
         font-weight: bold;
     }
     
@@ -30,6 +29,7 @@ const Card = styled.div `
 const NameContainer = styled.div `
     display: flex;
     justify-content: space-between;
+    padding: 0 1em;
 `
 
 const PokeList = styled.div `
@@ -61,7 +61,7 @@ export default function CardPokemon() {
                             />
                             <NameContainer id={"NameContainer" + pokemon}>
                                 <h2>{pokemon.name.english}</h2>
-                                <p className='NameId'>#{pokemon.id}</p>
+                                <p className='NameClass'>#{pokemon.id}</p>
                             </NameContainer>
                             <PokeType pokemonType={pokemon.type} key={"PokeType" + pokemon.id}></PokeType> 
                         </Card>
