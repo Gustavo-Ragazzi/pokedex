@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { MyPokemonList } from '../MainContainer';
+import { useContext } from 'react';
 
 const Container = styled.div `
     display: grid;
@@ -48,8 +50,10 @@ const TypeButton = styled.button`
         filter: brightness(120%);
     }
 `
+const pokemonFullList = require("../../pokemon-list.json")
 
 export default function InputButtonType(props) {
+    const { pokemonFiltedList, setPokemonFiltedList } = useContext(MyPokemonList);
 
     return (
         <Container>
@@ -57,16 +61,17 @@ export default function InputButtonType(props) {
                 props.types.map((type) => (
                     <DivContainer key={"Div"+type}>
                         <TypeButton
-                            id={"Filter" + type}
+                            id={type}
                             key={"Filter" + type}
                             onClick={e => {
                                 e.preventDefault()
-                                changeImgColor(type);
+                                setPokemonFiltedList(filterUpdate(type))
                             }}
                         >
                         <img
                             id={"Img" + type}
                             key={"Img" + type}
+                            data-type={"ImgTypeBackground"}
                             src={"../icons/" + type + ".svg"}
                             alt={type + " Icon"}
                             style={{backgroundColor: typeColor(type)}}
@@ -122,7 +127,7 @@ function typeColor(type) {
     }
 }
 
-function changeImgColor(type) {
+function filterUpdate(type) {
     const img = document.querySelector("#Img" + type)
     const imgBackgroundColor = img.style.backgroundColor
 
@@ -131,4 +136,21 @@ function changeImgColor(type) {
     } else {
         img.style.backgroundColor = "gray"
     }
+    
+    const filterList = boxCheckedList()
+
+    const res = pokemonFullList.filter(pokemon => filterList.some(type => pokemon.type.includes(type)))
+    console.log(res)
+
+    return res
+}
+
+function boxCheckedList() {
+    const buttonCheckedList = document.querySelectorAll('[data-type="ImgTypeBackground"]')
+    const list = Array.from(buttonCheckedList)
+    const filteredList = list.filter(type => type.style.backgroundColor !== "gray")
+    const filteredIds = filteredList.map((type) => type.id)
+    const filteredTypes = filteredIds.map((id) => id.slice(3))
+
+    return filteredTypes
 }
