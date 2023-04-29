@@ -65,13 +65,11 @@ export default function InputSearch() {
     )
 }
 
-function buttonSubmit(inputText) {
-    const filteredList = filterUpdate()
-
+function buttonSubmit(inputText, pokemonFiltedList) {
     if(inputText === "") {
-        return filteredList
+        return pokemonFiltedList;
     } else {
-        return filteredList.filter((pokemon) => pokemon.name.english.toLowerCase().includes(inputText.toLowerCase()))
+        return pokemonFiltedList.filter((pokemon) => pokemon.name.english.toLowerCase().includes(inputText.toLowerCase()))
     }
 }
 
