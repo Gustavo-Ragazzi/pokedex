@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import { useContext, useState } from 'react';
 import { MyPokemonList } from '../MainContainer';
-import { filterUpdate } from '../InputButtonType';
 import { AiOutlineSearch } from "react-icons/ai";
+
+const pokemonFullList = require("../../pokemon-list.json")
 
 const Search = styled.input `
     width: 1fr;
@@ -56,7 +57,7 @@ export default function InputSearch() {
                 type='submit'
                 onClick={(e) => {
                     e.preventDefault()
-                    setPokemonFiltedList(buttonSubmit(inputText, pokemonFiltedList))
+                    setPokemonFiltedList(buttonSubmit(inputText))
                 }}
             >
                 <AiOutlineSearch/>
@@ -65,11 +66,17 @@ export default function InputSearch() {
     )
 }
 
-function buttonSubmit(inputText, pokemonFiltedList) {
+function buttonSubmit(inputText) {
+    const sideBar = document.getElementById("search-sidebar")
+    
+    if (window.innerWidth <= 680) {
+        sideBar.style.display = "none"
+    }
+
     if(inputText === "") {
-        return pokemonFiltedList;
+        return pokemonFullList;
     } else {
-        return pokemonFiltedList.filter((pokemon) => pokemon.name.english.toLowerCase().includes(inputText.toLowerCase()))
+        return pokemonFullList.filter((pokemon) => pokemon.name.english.toLowerCase().includes(inputText.toLowerCase()))
     }
 }
 
