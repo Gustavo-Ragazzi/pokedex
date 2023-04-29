@@ -138,7 +138,13 @@ function changeColor(type) {
 export function filterUpdate() {
     const filterList = boxCheckedList()
     const res = pokemonFullList.filter(pokemon => filterList.some(type => pokemon.type.includes(type)))
-    return res
+    const inputValue = document.getElementById("searchInputText")
+
+    if(inputValue.value !== "") {
+        return res.filter((pokemon) => pokemon.name.english.toLowerCase().includes(inputValue.value.toLowerCase()))
+    } else {
+        return res
+    }
 }
 
 function boxCheckedList() {

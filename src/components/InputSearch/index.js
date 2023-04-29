@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { useContext, useState } from 'react';
 import { MyPokemonList } from '../MainContainer';
 import { AiOutlineSearch } from "react-icons/ai";
+import { filterUpdate } from '../InputButtonType';
 
 const pokemonFullList = require("../../pokemon-list.json")
 
@@ -47,6 +48,7 @@ export default function InputSearch() {
         <SearchContainer>
             <Search 
                 type="search"
+                id="searchInputText"
                 placeholder= "Pesquisa"
                 value={inputText}
                 onChange={event => {
@@ -67,6 +69,8 @@ export default function InputSearch() {
 }
 
 function buttonSubmit(inputText) {
+
+    const activePokeList = filterUpdate()
     const sideBar = document.getElementById("search-sidebar")
     
     if (window.innerWidth <= 680) {
@@ -74,9 +78,9 @@ function buttonSubmit(inputText) {
     }
 
     if(inputText === "") {
-        return pokemonFullList;
+        return activePokeList;
     } else {
-        return pokemonFullList.filter((pokemon) => pokemon.name.english.toLowerCase().includes(inputText.toLowerCase()))
+        return activePokeList.filter((pokemon) => pokemon.name.english.toLowerCase().includes(inputText.toLowerCase()))
     }
 }
 
