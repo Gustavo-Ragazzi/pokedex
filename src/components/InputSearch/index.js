@@ -4,8 +4,6 @@ import { MyPokemonList } from '../MainContainer';
 import { AiOutlineSearch } from "react-icons/ai";
 import { filterUpdate } from '../InputButtonType';
 
-const pokemonFullList = require("../../pokemon-list.json")
-
 const Search = styled.input `
     width: 1fr;
     height: 100%;

@@ -6,17 +6,6 @@ import ExpandFilterButton from '../ExpandFilterButton';
 
 const types = ["Bug", "Dragon", "Fairy", "Fire", "Ghost", "Ground", "Normal", "Psychic", "Steel", "Dark", "Electric", "Fighting", "Flying", "Grass", "Ice", "Poison", "Rock", "Water"]
 
-window.addEventListener("resize", (event) => {
-    const screenWidth = window.innerWidth
-    const sideBar = document.getElementById("search-sidebar") 
-
-    if (screenWidth > 680) {
-        sideBar.style.display = "block"
-    } else {
-        sideBar.style.display = "none"
-    }
-})
-
 const HeaderContainer = styled.header `
     position: fixed;
     background-color: #1E2124;
