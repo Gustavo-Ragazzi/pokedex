@@ -36,7 +36,7 @@ const PokeList = styled.div `
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding-left: 327px;
+    padding-left: 356px;
 
     @media (max-width: 680px) {
         padding-left: 0;
